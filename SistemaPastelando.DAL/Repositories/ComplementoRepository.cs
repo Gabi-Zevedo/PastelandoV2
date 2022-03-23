@@ -8,10 +8,13 @@ using System.Threading.Tasks;
 
 namespace SistemaPastelando.DAL.Repositories
 {
-    public class CardapioRepository : GenericRepository<Cardapio>, ICardapioRepository
+    public class ComplementoRepository : GenericRepository<Complemento>, IComplementoRepository
     {
-        public CardapioRepository(Context context) : base(context)
+        private readonly Context _context;
+
+        public ComplementoRepository(Context context) : base (context)
         {
+            _context = context;
         }
     }
 }

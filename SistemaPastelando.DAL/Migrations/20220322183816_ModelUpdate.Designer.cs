@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaPastelando.DAL;
 
 namespace SistemaPastelando.DAL.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20220322183816_ModelUpdate")]
+    partial class ModelUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -141,44 +143,6 @@ namespace SistemaPastelando.DAL.Migrations
                     b.HasKey("BebidaId");
 
                     b.ToTable("Bebidas");
-
-                    b.HasData(
-                        new
-                        {
-                            BebidaId = 1,
-                            Nome = "Coca-cola 2L",
-                            Valor = 9.5
-                        },
-                        new
-                        {
-                            BebidaId = 2,
-                            Nome = "Coca-cola 350ml",
-                            Valor = 4.5
-                        },
-                        new
-                        {
-                            BebidaId = 3,
-                            Nome = "Coca-cola 600ml",
-                            Valor = 6.5
-                        },
-                        new
-                        {
-                            BebidaId = 4,
-                            Nome = "Guaravita",
-                            Valor = 2.5
-                        },
-                        new
-                        {
-                            BebidaId = 5,
-                            Nome = "Guaraná 2L",
-                            Valor = 8.5
-                        },
-                        new
-                        {
-                            BebidaId = 6,
-                            Nome = "Guaraná 350L",
-                            Valor = 4.5
-                        });
                 });
 
             modelBuilder.Entity("SistemaPastelando.BLL.Models.Complemento", b =>
@@ -202,50 +166,6 @@ namespace SistemaPastelando.DAL.Migrations
                     b.HasKey("ComplementoId");
 
                     b.ToTable("Complementos");
-
-                    b.HasData(
-                        new
-                        {
-                            ComplementoId = 1,
-                            Nome = "Cebola",
-                            Valor = 0.0,
-                            ValorAdicional = 3.0
-                        },
-                        new
-                        {
-                            ComplementoId = 2,
-                            Nome = "Tomate",
-                            Valor = 0.0,
-                            ValorAdicional = 3.0
-                        },
-                        new
-                        {
-                            ComplementoId = 3,
-                            Nome = "Cheddar",
-                            Valor = 0.0,
-                            ValorAdicional = 3.0
-                        },
-                        new
-                        {
-                            ComplementoId = 4,
-                            Nome = "Catupiry",
-                            Valor = 0.0,
-                            ValorAdicional = 3.0
-                        },
-                        new
-                        {
-                            ComplementoId = 5,
-                            Nome = "Cream Cheese",
-                            Valor = 2.0,
-                            ValorAdicional = 3.0
-                        },
-                        new
-                        {
-                            ComplementoId = 6,
-                            Nome = "Azeitona",
-                            Valor = 0.0,
-                            ValorAdicional = 3.0
-                        });
                 });
 
             modelBuilder.Entity("SistemaPastelando.BLL.Models.Massa", b =>
@@ -266,26 +186,6 @@ namespace SistemaPastelando.DAL.Migrations
                     b.HasKey("MassaId");
 
                     b.ToTable("Massas");
-
-                    b.HasData(
-                        new
-                        {
-                            MassaId = 1,
-                            Nome = "Original",
-                            Valor = 14.0
-                        },
-                        new
-                        {
-                            MassaId = 2,
-                            Nome = "Pimenta",
-                            Valor = 4.5
-                        },
-                        new
-                        {
-                            MassaId = 3,
-                            Nome = "Cacau",
-                            Valor = 6.5
-                        });
                 });
 
             modelBuilder.Entity("SistemaPastelando.BLL.Models.OutroItem", b =>
@@ -306,14 +206,6 @@ namespace SistemaPastelando.DAL.Migrations
                     b.HasKey("OutroItemId");
 
                     b.ToTable("OutrosItens");
-
-                    b.HasData(
-                        new
-                        {
-                            OutroItemId = 1,
-                            Nome = "Pastel de Vento",
-                            Valor = 6.0
-                        });
                 });
 
             modelBuilder.Entity("SistemaPastelando.BLL.Models.Recheio", b =>
@@ -337,50 +229,6 @@ namespace SistemaPastelando.DAL.Migrations
                     b.HasKey("RecheioId");
 
                     b.ToTable("Recheios");
-
-                    b.HasData(
-                        new
-                        {
-                            RecheioId = 1,
-                            Nome = "Mussarela",
-                            Valor = 0.0,
-                            ValorAdicional = 3.0
-                        },
-                        new
-                        {
-                            RecheioId = 2,
-                            Nome = "Minas",
-                            Valor = 0.0,
-                            ValorAdicional = 3.0
-                        },
-                        new
-                        {
-                            RecheioId = 3,
-                            Nome = "Presunto",
-                            Valor = 0.0,
-                            ValorAdicional = 3.0
-                        },
-                        new
-                        {
-                            RecheioId = 4,
-                            Nome = "Calabresa",
-                            Valor = 0.0,
-                            ValorAdicional = 3.0
-                        },
-                        new
-                        {
-                            RecheioId = 5,
-                            Nome = "Carne",
-                            Valor = 2.0,
-                            ValorAdicional = 3.0
-                        },
-                        new
-                        {
-                            RecheioId = 6,
-                            Nome = "Frango",
-                            Valor = 0.0,
-                            ValorAdicional = 3.0
-                        });
                 });
 
             modelBuilder.Entity("SistemaPastelando.BLL.Models.Role", b =>
@@ -428,44 +276,6 @@ namespace SistemaPastelando.DAL.Migrations
                     b.HasKey("SobremesaId");
 
                     b.ToTable("Sobremesas");
-
-                    b.HasData(
-                        new
-                        {
-                            SobremesaId = 1,
-                            Nome = "Pastel Banana c/ açucar",
-                            Valor = 8.0
-                        },
-                        new
-                        {
-                            SobremesaId = 2,
-                            Nome = "Pastel Romeu e Julieta",
-                            Valor = 8.0
-                        },
-                        new
-                        {
-                            SobremesaId = 3,
-                            Nome = "Pastel de Churros",
-                            Valor = 8.0
-                        },
-                        new
-                        {
-                            SobremesaId = 4,
-                            Nome = "Pastel Banana c/ Nutela",
-                            Valor = 8.0
-                        },
-                        new
-                        {
-                            SobremesaId = 5,
-                            Nome = "Pastel de Ovomaltine",
-                            Valor = 8.0
-                        },
-                        new
-                        {
-                            SobremesaId = 6,
-                            Nome = "Pastel Mineirin",
-                            Valor = 8.0
-                        });
                 });
 
             modelBuilder.Entity("SistemaPastelando.BLL.Models.User", b =>

@@ -1,0 +1,23 @@
+Login:
+Atendente, Adm
+
+Cliente:
+Crud, Buscar, Filtrar
+
+Cardapio:
+Crud, Buscar, Filtrar, GetByTipo
+
+Tipo:
+GetAllByTipo
+
+Pedido:
+Get by tipo, Adicionar cliente,Adicionar massa, Adicionar recheios, 
+Adicionar complementos, Adicionar extras, Adicionar bebida, Adicionar msmo pastel, adicionar outros, Imprimir 
+
+
+        Recheio,
+        Complemento,
+        Massa,
+        Bebida,
+        Sobremesas,
+	OutroItem,

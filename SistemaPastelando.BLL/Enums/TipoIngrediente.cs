@@ -8,9 +8,11 @@ namespace SistemaPastelando.BLL.Enums
 {
     public enum TipoIngrediente : int
     {
-        Ingrediente,
+        Recheio,
+        Complemento,
         Massa,
         Bebida,
-        Acompanhamento
+        Acompanhamento,
+        OutroItem,
     }
 }

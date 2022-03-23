@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace SistemaPastelando.API
 {
@@ -31,23 +32,29 @@ namespace SistemaPastelando.API
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("ConexaoDB")));
 
             services.AddControllers()
                 .AddFluentValidation()
-                .AddJsonOptions(options => options.JsonSerializerOptions.IgnoreNullValues = true)
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.IgnoreNullValues = true;
+                    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                })
                 .AddNewtonsoftJson(options =>
                 {
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
-                
+
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SistemaPastelando.API", Version = "v1" });
             });
+
 
             services.AddIdentity<User, Role>().AddEntityFrameworkStores<Context>();
 
@@ -55,9 +62,15 @@ namespace SistemaPastelando.API
 
             services.AddSpaStaticFiles(dir => dir.RootPath = "SistemaPastelando-UI");
 
+            services.AddScoped<IBebidaRepository, BebidaRepository>();
+            services.AddScoped<IRecheioRepository, RecheioRepository>();
+            services.AddScoped<IComplementoRepository, ComplementoRepository>();
+            services.AddScoped<ISobremesaRepository, SobremesaRepository>();
+            services.AddScoped<IMassaRepository, MassaRepository>();
+            services.AddScoped<IOutroItemRepository, OutroItemRepository>();
 
 
-            services.AddScoped<ICardapioRepository, CardapioRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
